@@ -48,11 +48,10 @@ if __name__ == "__main__":
 
         with mlflow.start_run():
                 ##n_estimators=400
-                ##max_depth=6
                 ##min_samples_leaf=100
                 ##n_jobs=4
                 predictors = [x for x in train.columns if x not in [target]+IDcol]
-                rf = RandomForestRegressor(n_estimators=n_estimators,max_depth=max_depth, min_samples_leaf=min_samples_leaf,n_jobs=n_jobs)
+                rf = RandomForestRegressor(n_estimators=n_estimators,min_samples_leaf=min_samples_leaf,n_jobs=n_jobs)
 
                 #Fit the algorithm on the data
                 rf.fit(train[predictors], train[target])
@@ -86,7 +85,6 @@ if __name__ == "__main__":
         print("Random Forest model Parameters")
         print()
         print("n_estimators: %s" % n_estimators)
-        print("max_depth: %s" % max_depth)
         print("min_samples_leaf: %s" % min_samples_leaf)
         print("n_jobs: %s" % n_jobs)
         print()
@@ -106,7 +104,6 @@ if __name__ == "__main__":
         print()
 
         mlflow.log_param("n_estimators", n_estimators)
-        mlflow.log_param("max_depth", max_depth)
         mlflow.log_param("min_samples_leaf", min_samples_leaf)
         mlflow.log_param("n_jobs", n_jobs)
 
