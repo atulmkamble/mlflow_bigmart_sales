@@ -42,10 +42,9 @@ if __name__ == "__main__":
         target = 'Item_Outlet_Sales'
         IDcol = ['Item_Identifier','Outlet_Identifier']
 
-        n_estimators =int(sys.argv[1]) if len(sys.argv) > 1 else 400
-        max_depth =int(sys.argv[2]) if len(sys.argv) > 2 else 6
-        min_samples_leaf =int(sys.argv[3]) if len(sys.argv) > 3 else 100
-        n_jobs =int(sys.argv[4]) if len(sys.argv) > 4 else 4
+        n_estimators =int(sys.argv[1]) if len(sys.argv) > 1 else 10
+        min_samples_leaf =int(sys.argv[2]) if len(sys.argv) > 3 else 1
+        n_jobs =int(sys.argv[3]) if len(sys.argv) > 4 else -1
 
         with mlflow.start_run():
                 ##n_estimators=400
