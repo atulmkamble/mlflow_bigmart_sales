@@ -95,28 +95,15 @@ if __name__ == "__main__":
                 print("MAE: %s" % mae)
                 print("R2: %s" % r2)
                 print()
-                print("Model Cross Validation Metrics")
-                print()
-                print("cv_score_mean: %s" % cv_score_mean)
-                print("cv_score_std: %s" % cv_score_std)
-                print("cv_score_min: %s" % cv_score_min)
-                print("cv_score_max: %s" % cv_score_max)
-                print()
 
                 mlflow.log_param("n_estimators", n_estimators)
                 mlflow.log_param("min_samples_leaf", min_samples_leaf)
                 mlflow.log_param("n_jobs", n_jobs)
 
-
                 mlflow.log_metric("mse", mse)
                 mlflow.log_metric("rmse", rmse)
                 mlflow.log_metric("mae", mae)
                 mlflow.log_metric("r2", r2)
-                mlflow.log_metric("cv_score_mean", cv_score_mean)
-                mlflow.log_metric("cv_score_std", cv_score_std)
-                mlflow.log_metric("cv_score_min", cv_score_min)
-                mlflow.log_metric("cv_score_max", cv_score_max)
-
 
                 mlflow.log_artifact("Test_Prediction_File.csv", (submission.to_csv("Test_Prediction_File.csv", index=False)))
 
