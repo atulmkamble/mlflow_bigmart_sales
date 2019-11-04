@@ -1,0 +1,12 @@
+name: tutorial
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      n_estimators: {type: int, default: 400}
+      max_depth: {type: int, default: 6}
+      min_samples_leaf: {type: int, default: 100}
+      n_jobs: {type: int, default: 4}
+    command: "python train.py {n_estimators} {max_depth} {min_samples_leaf} {n_jobs}"
